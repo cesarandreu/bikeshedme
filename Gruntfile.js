@@ -72,7 +72,7 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
           '<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}',
         ],
-      
+
         options: {
           livereload: true
         }
@@ -375,7 +375,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'bower-install',
+      // 'bower-install',
       'concurrent:server',
       'autoprefixer',
       'express:dev',
@@ -398,7 +398,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'bower-install',
+    // 'bower-install',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

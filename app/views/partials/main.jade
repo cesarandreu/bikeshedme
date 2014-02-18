@@ -1,20 +1,51 @@
-div(ng-include='\'partials/navbar\'')
+.content-wrapper
 
-.jumbotron
-  h1
-    | 'Allo, 'Allo!
+  .content
+    h2.content-head.is-center Making bikeshedding fast and easy.
 
-  p.lead
-    <img src="images/yeoman.png" alt="I'm Yeoman">
-    br
-    | Always a pleasure scaffolding your apps.
-  p
-    a.btn.btn-lg.btn-success(ng-href='#') Splendid!
-    
-.row.marketing
-  div(ng-repeat='thing in awesomeThings')
-    h4 {{thing.name}}
-    p {{thing.info}}
+    .pure-g-r
 
-.footer
-  p ♥ from the Yeoman team
+      .l-box-lrg.pure-u-3-5
+        h3 What is bikeshedding?
+        p
+          | Futile investment of time and energy in marginal technical issues.
+          a.source-link(href='https://en.wiktionary.org/wiki/bikeshedding') source
+
+
+        h3 What is this?
+        p If you have two trivial design choices and you want to get people's feedback on it quickly, you can upload both images and give people a chance to vote on their favorite choice.
+
+        h3 Why?
+        p Because I found myself thinking of simple problems way too much, and wanted a way to quickly get feedback on these.
+
+      .l-box-lrg.pure-u-2-5
+
+        h3 Create your bikeshed
+
+        form.pure-form.pure-form-stacked(name='bikeshed', ng-submit='create(bikeshed)')
+          fieldset
+
+            label(for='title') Title
+            input#title(type='text', ng-model='title', name='title', maxlength='255' required)
+            validation-error(field='bikeshed.title')
+
+            label(for='imageA') Image A
+            input#ImageA(type='file', ng-model='imageA', name='imageA', ng-file-select='onFileSelect($files, bikeshed.imageA)', required)
+            validation-error(field='bikeshed.imageA')
+
+            label(for='imageB') Image B
+            input#ImageB(type='file', ng-model='imageB', name='imageB', ng-file-select='onFileSelect($files, bikeshed.imageB)', required)
+            validation-error(field='bikeshed.imageB')
+
+            label(for='limit')
+              | Time limit
+              small (minutes)
+            input#limit(type='number', ng-model='limit', name='limit', max='30', min='5', required)
+            validation-error(field='bikeshed.limit')
+
+            label.pure-checkbox(for='pub')
+              input#pub(type='checkbox', ng-model='pub', name='pub')
+              span Make bikeshed public
+            validation-error(field='bikeshed.pub')
+
+            button.pure-button.pure-button-primary(type='submit') Create bikeshed

@@ -1,5 +1,7 @@
-.header(ng-controller='NavbarCtrl')
-  ul.nav.nav-pills.pull-right
-    li(ng-repeat='item in menu', ng-class='{active: isActive(item.link)}')
-      a(ng-href='{{item.link}}') {{item.title}}
-  h3.text-muted bikeshedme
+.header
+  .home-menu.pure-menu.pure-menu-open.pure-menu-horizontal.pure-menu-fixed
+    a.pure-menu-heading(href='/') BIKESHEDME
+
+    ul
+      li(ng-repeat='item in menu', ng-class="{'pure-menu-selected': isActive(item.link)}")
+        a(ng-href='{{item.link}}') {{item.title}}
